@@ -1,1 +1,1 @@
-# EditedTriangle_WPFOpenGL31CSharp
+Пилим графику на OpenGL
