@@ -21,8 +21,8 @@ namespace EditedTriangle
         // Shadow mapping
         private int shadowMapFBO;
         private int shadowMapTexture;
-        private readonly int shadowWidth = 2048;
-        private readonly int shadowHeight = 2049;
+        private readonly int shadowWidth = 4000;
+        private readonly int shadowHeight = 4000;
 
         // Shader programs
         private int mainShaderProgram;
