@@ -190,7 +190,7 @@ namespace EditedTriangle
             modelCenter = (min + max) / 2f;
             float size = Math.Max(max.X - min.X,
                            Math.Max(max.Y - min.Y, max.Z - min.Z));
-            modelScale = 30f / size;
+            modelScale = 10f / size;
         }
 
         private void GlControl_Paint(object sender, EventArgs e)
@@ -201,8 +201,8 @@ namespace EditedTriangle
             GL.Clear(ClearBufferMask.DepthBufferBit);
             GL.UseProgram(shadowShaderProgram);
 
-            var near = 70f;
-            var far = 90;
+            var near = 73f;
+            var far = 100;
             float orthoSize = 50f; // Экспериментируйте с этим значением
             var lightProj = Matrix4.CreateOrthographicOffCenter(
                 -orthoSize,
