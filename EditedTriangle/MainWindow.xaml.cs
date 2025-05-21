@@ -201,8 +201,8 @@ namespace EditedTriangle
             GL.Clear(ClearBufferMask.DepthBufferBit);
             GL.UseProgram(shadowShaderProgram);
 
-            var near = 1f;
-            var far = 100f;
+            var near = 70f;
+            var far = 90;
             float orthoSize = 50f; // Экспериментируйте с этим значением
             var lightProj = Matrix4.CreateOrthographicOffCenter(
                 -orthoSize,
@@ -210,7 +210,7 @@ namespace EditedTriangle
                 -orthoSize,
                 orthoSize,
                 near,
-                far + 100f); // Увеличим far plane
+                far); // Увеличим far plane
             var lightPos = new Vector3(0, 60, 60);
             var lightView = Matrix4.LookAt(lightPos, modelCenter, Vector3.UnitY);
             var lightSpace =  lightView * lightProj;
@@ -234,7 +234,7 @@ namespace EditedTriangle
             var proj = Matrix4.CreatePerspectiveFieldOfView(MathHelper.PiOver4,
                         (float)glControl.Width / glControl.Height,
                         1f, 1000f);
-            var view = Matrix4.LookAt(new Vector3(0, 0, 70), Vector3.Zero, Vector3.UnitY);
+            var view = Matrix4.LookAt(new Vector3(0, 0, 40), Vector3.Zero, Vector3.UnitY);
 
             GL.UniformMatrix4(GL.GetUniformLocation(mainShaderProgram, "uProjection"), false, ref proj);
             GL.UniformMatrix4(GL.GetUniformLocation(mainShaderProgram, "uView"), false, ref view);
@@ -254,7 +254,7 @@ namespace EditedTriangle
 
         private void CompositionTarget_Rendering(object sender, EventArgs e)
         {
-            rotationAngle += 0.1f;
+            rotationAngle += 1f;
             if (rotationAngle >= 360f) rotationAngle = 0f;
             glControl.Invalidate();
         }
